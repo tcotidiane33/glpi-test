@@ -1,0 +1,96 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "/config/*",
+        "/files/*",
+        "/lib/*",
+        "/marketplace/*",
+        "/node_modules/*",
+        "/plugins/*",
+        "/public/lib/*",
+        "/public/build/*",
+        "/tests/config/*",
+        "/vendor/*",
+        "**/*.min.js"
+    ],
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "CFG_GLPI": true,
+        "tinyMCE": true,
+        "__": true,
+        "_n": true,
+        "_x": true,
+        "_nx": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "rules": {
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
+        ],
+        "quotes": [
+            "off",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["js/modules/**"],
+            "parserOptions": {
+                "sourceType": "module"
+            }
+        },
+        {
+            "files": ["stylelint.config.js", "webpack.config.js", "babel.config.js"],
+            "env": {
+                "node": true
+            }
+        },
+        {
+            "files": ["tests/js/**"],
+            "env": {
+                "node": true,
+                "jest": true
+            },
+            "parserOptions": {
+                "sourceType": "module"
+            }
+        }
+    ]
+}
